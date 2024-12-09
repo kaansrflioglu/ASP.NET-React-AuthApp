@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../utils/axiosConfig";
-import { Container, TextField, Button, Typography, Box } from "@mui/material";
+import { Container, TextField, Button, Typography, Box, FormLabel } from "@mui/material";
 
 function LoginForm() {
     const [username, setUsername] = useState("");
@@ -11,21 +11,21 @@ function LoginForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
+
         try {
             const response = await axiosInstance.post("/auth/login", { username, password });
             const { token } = response.data;
-    
+
             localStorage.setItem("token", token);
             localStorage.setItem("username", username);
-    
+
             setMessage("Login successful!");
             setTimeout(() => window.location.reload(), 1000);
         } catch (error) {
             setMessage(error.response?.data?.message || "An error occurred");
         }
     };
-    
+
 
     return (
         <Container maxWidth="xs" sx={{ mt: 8 }}>
@@ -54,6 +54,11 @@ function LoginForm() {
                     <Button type="submit" variant="contained" color="primary" fullWidth>
                         Login
                     </Button>
+                    <FormLabel>
+                        <a href="/register" style={{ textDecoration: 'none', color: 'blue' }}>
+                            Don't have an account?
+                        </a>
+                    </FormLabel>
                 </Box>
             </form>
             {message && (

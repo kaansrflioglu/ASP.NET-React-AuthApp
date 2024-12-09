@@ -7,10 +7,10 @@ function MainPage({ handleLogout }) {
     return (
         <Container maxWidth="sm" sx={{ mt: 8, textAlign: "center" }}>
             <Typography variant="h4" gutterBottom>
-                Hoşgeldiniz, {username}!
+                Welcome, {username}!
             </Typography>
             <Button variant="contained" color="secondary" onClick={handleLogout}>
-                Çıkış Yap
+                LOGOUT
             </Button>
         </Container>
     );
