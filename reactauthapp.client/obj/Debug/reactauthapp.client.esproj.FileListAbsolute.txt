@@ -1,0 +1,1 @@
+C:\Users\balos\Desktop\ASP.NET-React-AuthApp\reactauthapp.client\obj\Debug\reactauthapp.client.esproj.CoreCompileInputs.cache
